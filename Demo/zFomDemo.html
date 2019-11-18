@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+<meta charset="utf-8" />
+<title>zValiDemo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="zFomDemo.css" type="text/css" />
+<link rel="stylesheet" href="../ZNumBox/zNumBox.css" type="text/css" />
+<link rel="stylesheet" href="../ZValidator/zValidator.css" type="text/css" />
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script src="../js/common.js"></script>
+<script src="../ZNumBox/zNumBox.js"></script>
+<script src="../ZValidator/zValidator.js"></script>
+</head>
+<body>
+<hr class="clr_hr" />
+<div class="ctnr0">
+	<p class="tit0">温馨提示：</p>
+	<div class="inr_ctnr0 w90p">
+		<ol>
+			<li>可注册
+				<label id="numBox" class="ZNumBox"> <i class="disbl">-</i>
+					<input id="persCnt" minnum="3" maxnum="9" value="3" />
+					<i class="enbl">+</i> </label>
+				人。</li>
+			<li>点击“添加注册人”按钮以增加注册人。</li>
+		</ol>
+	</div>
+</div>
+<form id="fom0" class="fom0 sngl">
+	<div class="per">
+		<div class="fom_ln0">
+			<label class="lbl0">姓　　名：</label>
+			<input class="zNameDom" zname="fomZVali" zrequire="姓名" placeholder="请输入您的姓名" />
+		</div>
+		<div class="fom_ln0"> <i class="ar0"></i>
+			<label class="lbl0">性　　别：</label>
+			<label class="lbl_slt0">--请选择--</label>
+			<select class="zNameDom" zname="fomZVali" zrequire="性别">
+				<option value="">--请选择--</option>
+				<option value="0">男</option>
+				<option value="1">女</option>
+			</select>
+		</div>
+		<div class="fom_ln0"> <i class="ar0"><i></i></i>
+			<label class="lbl0">证件类型：</label>
+			<label class="lbl_slt0">--请选择--</label>
+			<select class="zNameDom" idcard zname="fomZVali" zrequire="证件类型">
+				<option value="">--请选择--</option>
+				<option value="0">身份证</option>
+				<option value="1">军官证</option>
+			</select>
+		</div>
+		<div class="fom_ln0">
+			<label class="lbl0">证件号码：</label>
+			<input class="zNameDom" zname="fomZVali" zrequire="证件号码" zcustom="zcustomF" placeholder="请输入证件号码" />
+		</div>
+		<div class="fom_ln0">
+			<label class="lbl0">手机号码：</label>
+			<input class="zNameDom" zname="fomZVali" zrequire="手机号码" zmobile placeholder="请输入手机号码" />
+		</div>
+	</div>
+	<div id="pers"></div>
+	<p id="btnAdPr" class="ctnr1 btn_cust0 off">+添加注册人</p>
+	<hr class="btn_grp0_spstkr" />
+	<div class="btn_grp0 clr">
+		<input class="btn0 btn0_rd w90p" type="submit" value="提交注册" />
+	</div>
+</form>
+<script>
+zcustomF = {
+	zsuccess: function($elm) {
+		var cardType = $elm.parents('.per').find('[idcard]')[0].value;
+		var tst, txt;
+		if (cardType === '0') {
+			tst = (/^\d{17}[0-9xy]$/i).test($elm.val());
+			txt = '身份证格式不正确';
+		} else if (cardType === '1') {
+			tst = (/^\d{8}$/).test($elm.val());
+			txt = '军官证格式不正确';
+		} else {
+			tst = false;
+			txt = '请选择以上证件类型';
+		}
+		return {
+			isOk: tst,
+			msgtxt: txt
+		};
+	}
+};
+
+(function($) {
+	$('#fom0').on('change', 'select',
+	function() {
+		var $ths = $(this);
+		$ths.prev().text($ths.find('[value=' + $ths.val() + ']').text());
+	});
+
+	var perHtml = '<div class="per"><p class="lbl2">第<i perno>2</i>位注册人<span class="btn_del0">删除</span></p>\
+     <div class="fom_ln0"><label class="lbl0">姓　　名：</label><input class="zNameDom" zname="fomZVali" zrequire="姓名" placeholder="请输入您的姓名" />\
+     </div><div class="fom_ln0"><i class="ar0"><i></i></i><label class="lbl0">性　　别：</label><label class="lbl_slt0">--请选择--</label>\
+					<select class="zNameDom" zname="fomZVali" zrequire="性别"> <option value="">--请选择--</option> <option value="0">男</option> <option value="1">女</option> </select>\
+     </div><div class="fom_ln0"><i class="ar0"><i></i></i><label class="lbl0">证件类型：</label><label class="lbl_slt0">--请选择--</label>\
+					<select class="zNameDom" idcard zname="fomZVali" zrequire="证件类型"> <option value="">--请选择--</option> <option value="0">身份证</option> <option value="1">军官证</option> </select>\
+     </div><div class="fom_ln0"><label class="lbl0">证件号码：</label>\
+					<input class="zNameDom" zname="fomZVali" zrequire="证件号码" zcustom="zcustomF" placeholder="请输入证件号码" /></div>\
+     <div class="fom_ln0"><label class="lbl0">手机号码：</label><input class="zNameDom" zname="fomZVali" zrequire="手机号码" zmobile placeholder="请输入手机号码" />\
+     </div>';
+
+	var $fom0 = $('#fom0');
+	$fom0.ZValidate({
+		zname: 'fomZVali'
+	});
+	var persCnt = $("#persCnt").val().toInt();
+	var $btnAdPr = $("#btnAdPr");
+	if (persCnt > 1) {
+		$btnAdPr.removeClass("off");
+		$fom0.removeClass("sngl");
+	}
+	var $pers = $("#pers");
+	$btnAdPr.click(function() {
+		$pers.append(perHtml.replace(/\<i\sperno\>\d+\<\/i\>/, '<i perno>'+($(".per").length+1)+'</i>'));
+		if ($(".per").length === persCnt) $btnAdPr.addClass("off");
+	});
+	$(document.body).on("click", ".btn_del0",
+	function() {
+		var $ths = $(this);
+		$ths.closest(".per").remove();
+		var $lst = $(".per");
+		for (var i = 1; i < $lst.length; i++) {
+			$lst.eq(i).find(".btn_del0").siblings("span").text(i + 1);
+		}
+		if ($btnAdPr.hasClass("off")) $btnAdPr.removeClass("off");
+		$('[perno]').each(function (idx) {
+			$(this).text(idx + 2);
+		});
+	});
+
+	var $persCnt = $('#persCnt');
+	$("#numBox").NumBox({
+		change: function(num) {
+			persCnt = $persCnt.val().toInt();
+			if (persCnt > 1) {
+				$btnAdPr.removeClass("off");
+				$fom0.removeClass("sngl");
+			} else {
+				$btnAdPr.addClass("off");
+				$fom0.addClass("sngl");
+			}
+		}
+	});
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+@charset 'utf-8';
+/* ZNumBox */
+.ZNumBox { position: relative; display: inline-block; margin-bottom: -.5em; padding: 0 1.8em; height: 1.8em; border: 1px #cecece solid; text-align: center; border-radius: 5px; }
+.ZNumBox * { float: left; display: block; height: 1.8em; vertical-align: bottom; text-align: center; line-height: 1.3em; font-size: inherit; }
+.ZNumBox input { width: 2.2em; height: 1.7em; border-left: 1px #cecece solid; border-right: 1px #cecece solid; border-top: 0 none; border-bottom: 0 none; line-height: 1.6em; background: transparent; }
+.ZNumBox i { position: absolute; top: 0; width: 1.5em; vertical-align: bottom; font-size: 1.25em; cursor: pointer; }
+.ZNumBox i:first-child { left: 0; }
+.ZNumBox i:last-child { right: 0; }
+.ZNumBox .disbl { color: #e6e6e6; }
+.ZNumBox .enbl { color: #ff6633; }
