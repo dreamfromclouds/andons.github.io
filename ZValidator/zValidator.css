@@ -1,7 +1,7 @@
 @charset 'utf-8';
 /* ZValidator */
 .ZValidator { }
-.ZValidatorMsg { position: absolute; right: 1.4em; top: 0; color: #ff0000; }
+.ZValidatorMsg { position: absolute; right: 1.4em; top: 0; color: #e6633c; }
 .ZValidatorMsg_dcr { }
 .ZValidatorMsg_ico { }
 .ZValidatorMsg_txt { }

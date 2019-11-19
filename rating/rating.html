@@ -12,9 +12,67 @@
 <link rel="stylesheet" href="../css/common.css" type="text/css" />
 <link rel="stylesheet" href="../css/regular.min.css" type="text/css" />
 <link rel="stylesheet" href="../css/all.min.css" type="text/css" />
+<style>
+body:before {content:''; display:block; height:1px;}
+.far {font-size:2em; transaction:all .2s ease 0s; -webkit-transaction:all .2s ease 0s;}
+.rating_bar {padding:1em; margin:1em; background-color:#fff;}
+.turnon .turnlight {color:#FFC314;}
+.rstbtn {display:inline-block; padding:0 .2em; color:#fff; background-color:#5485F8; border-radius:3px;}
+</style>
 </head>
 
 <body>
-<i class="far fa-grin">aaa</i>
+<p class="rating_bar turnon">
+<i class="ratdot far fa-grin"></i>
+<i class="ratdot far fa-grin"></i>
+<i class="ratdot far fa-grin"></i>
+<i class="ratdot far fa-grin"></i>
+<i class="ratdot far fa-grin"></i>
+</p>
+<h2 style="padding:1em;"><label id="rzlt">0</label>%<i class="flt_r	rstbtn" onclick="resat()" style="display:none;">reset</i></h2>
+
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script>
+var clicked = 0;
+$rzlt = $('#rzlt');
+
+$('.turnon').on('mouseover', '.ratdot', function () {	
+	if(!clicked) {
+		var $rdot = $rdot_o = $(this);
+		while($rdot.length != 0) {
+			$rdot.addClass('turnlight');
+			$rdot = $rdot.prev();
+		}
+		$rdot = $rdot_o.next();
+		while($rdot.length != 0) {		
+			$rdot.removeClass('turnlight');
+			$rdot = $rdot.next();
+		}
+		$rzlt.text($('.turnlight').length * 20);
+	}
+});
+
+$('.turnon').on('click', '.ratdot', function () {
+	$('.rstbtn').show();
+	clicked = 1;
+});
+
+$('.rating_bar').mouseover(function () {
+	$(this).addClass('turnon');
+});
+$('.rating_bar').mouseout(function () {
+	if(!$('.rstbtn').is(':visible'))
+	$(this).removeClass('turnon');
+	if(!clicked) $rzlt.text(0);
+});
+
+function resat() {
+	$rzlt.text(0);
+	$('.rstbtn').hide();
+	$('.turnlight').removeClass('turnlight');
+	$('.rating_bar').addClass('turnon');
+	clicked = 0;
+}
+</script>
 </body>
 </html>
