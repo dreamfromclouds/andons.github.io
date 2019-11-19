@@ -14,11 +14,11 @@ $('#invokor').click(function (e) {
 	var othLnks = $('#othLnks a');
 	for (var i = 0; i < othLnks.length; i++) {
 		var lnk = othLnks[i];
-		$.ajax(function () {
+		$.ajax({		
 			url:'index.html',	
 			success:function (dta) {
 				lnk.click();
-			}
+			}	
 		});
 	}
 });
