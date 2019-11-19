@@ -1,44 +1,4 @@
 @charset "utf-8";
-* { font-family: '\5FAE\8F6F\96C5\9ED1'; }
-ul, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, hr { margin: 0; padding: 0; }
-ol { margin: 0; padding: 0 0 0 1.6em; }
-fieldset, img, hr { border: 0 none; }
-ul { list-style: none; }
-em, i { font-style: normal; }
-header, footer, section, details, aside, menu, nav, article, figure, figcaption, time { }
-select, input, img { vertical-align: middle; outline: none; }
-a img { border: 0; }
-body, input, textarea { color: #565656; }
-input[type=submit] { -webkit-appearance: none; } /* Safari 浏览器 submit button 自动样式取消 */
-body { padding: 0; margin: 0 auto; max-width: 640px; min-height: 100%; background-color: #eef1f5; }
-html { height: 100%; background-color: #ccc; }
-/* Mac 禁用点击高亮 */
-* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-a { color: #cca056; text-decoration: none; }
-a:hover { text-decoration: none; }
-
-@media screen and (max-width:250px) {
-body, input, textarea, select { font-size: 9px; }
-}
-
-@media screen and (max-width:320px) and (min-width:251px) {
-body, input, textarea { font-size: 13px; }
-}
-
-@media screen and (min-width:321px) and (max-width:1439px) {
-body, input, textarea, select { font-size: 15px; }
-}
-
-@media screen and (min-width:1440px) {
-body, input, textarea, select { font-size: 17px; }
-}
-.off { display: none !important; }
-.fixed { position: fixed; }
-.clr:after { content: "."; display: block; visibility: hidden; height: 0; clear: both; }
-.clr { zoom: 1; }
-.clr_hr { visibility: hidden; margin: 0; width: 99%; height: 0; overflow: hidden; }
-.flt_l { float: left; }
-.flt_r { float: right; }
 .w90p { margin-left: 5%; margin-right: 5%; }
 a.w90p, input.w90p { width: 90%; }
 .ctnr1, .per { margin-bottom: 1em; border-bottom: 1px #dcdcdc solid; background-color: #fff; }
