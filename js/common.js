@@ -31,4 +31,8 @@
 			});
 		}
 	};
+	
+	$(document).ready(function () {
+		$('<a style="display:block; padding:.5em 1em; text-align:right;" href="../index.html">&lt;&lt; back to list</a>').insertBefore($('body *:first'));
+	});
 })(jQuery);

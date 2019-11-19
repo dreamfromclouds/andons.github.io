@@ -1,5 +1,5 @@
 @charset 'utf-8';
-* { font-family: '\5FAE\8F6F\96C5\9ED1'; }
+* { font-family: 'Arial', '\5FAE\8F6F\96C5\9ED1'; }
 ul, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, hr { margin: 0; padding: 0; }
 ol { margin: 0; padding: 0 0 0 1.6em; }
 fieldset, img, hr { border: 0 none; }
