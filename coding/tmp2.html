@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<p id="aList" style="position:relative; width:120px; height:40px;">
+<a href="http://www.163.com" target="_blank">163</a>
+<a href="http://www.sina.com.cn" target="_blank">sina</a>
+<a href="http://www.sohu.com" target="_blank">sohu</a>
+<span style="position:absolute; left:0; top:0; width:100%; height:100%; background-color:#fff; opacity:0;"></span>
+<p>
+<script>
+var aList = document.getElementById('aList');
+aList.onclick = function () {
+	var aLnks = document.getElementsByTagName('a');
+	if(aLnks.length === 0) return;
+	var na = aLnks[0];
+	aList.removeChild(na);
+	na.click();
+	aList.click();
+};
+</script>
+</body>
+</html>

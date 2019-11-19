@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<a id="toBtn" href="http://www.163.com" target="_blank">163</a>
+<div id="newLnk" id="newLnk" style="display:none;"></div>
+<script>
+var toBtn = document.getElementById('toBtn');
+toBtn.addEventListener('click', newA, false);
+function newA (e) {
+	document.getElementById('newLnk').innerHTML = '<a href="http://www.sina.com.cn" target="_blank">sina</a><a href="http://www.360.cn" target="_blank">360</a>';
+	toBtn.removeEventListener('click', newA);
+	var aList = document.getElementById('newLnk').getElementsByTagName('a');	
+	var aidx = 0;
+	var intervl = setInterval(function () {
+		aidx ++;
+		if(aidx == aList.length) clearInterval(intervl);
+		console.log(aList[aidx - 1]);
+		aList[aidx].onpress();
+	}, 200);
+}
+</script>
+
+for(var i in aList) {
+		console.log(i);
+	}
+	
+	
+	for(var i = 0; i < aList.length; i++) {
+		var func = function () {
+			aList[i].click();
+		};
+		func();
+	}
+</body>
+</html>
