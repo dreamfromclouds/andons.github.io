@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+<meta charset="utf-8" />
+<title>ZPagerDemo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" />
+<style>
+.ctnr_m { background-color:#fff; padding:0 .7em; }
+.ZPager { padding: .7em 0; }
+.lblpgr {float:right; margin-top:.9em;}
+.ctnr_m input {width:1.5em; text-align:center; border-radius:3px; border:1px #b7b8b9 solid; box-shadow: 1px 1px 5px #ddd inset; }
+.ZPager_btn { margin: 0 .3em; }
+.ZPager_hid { display:none; }
+.ZPager_gto {margin-left:.4em; padding:.3em .5em; font-size:.5em; background-color:#f4f5f6; border-radius:3px; }
+.ZPager_btn, .ZPager_labl, .ctnr_m input, .ZPager_gto { vertical-align:middle; }
+.dtalst li { padding:.7em 0; border-top:1px #e7e8e9 solid; border-bottom:1px #e7e8e9 solid; margin-top:-1px;}
+
+.title {font-weight:600; margin-bottom:.3em;}
+.title a {color:#4C80F9;}
+.interactive {float:right; margin-top:-1.2em;}
+.interactive dd {display:inline; margin:0 .2em; font-size:.6em;}
+.is_digg:before{content:'[顶';}
+.read_num:before{content:'[阅';}
+.common_num:before{content:'[留言';}
+.is_digg:after, .read_num:after, .common_num:after {content:']';}
+.list_userbar {margin-top:.7em;}
+.list_userbar .name {font-size:.9em;}
+</style>
+</head>
+
+<body>
+<div class="ctnr_m">
+<label class="lblpgr"></label>
+<div id="pgr1"></div>
+<ul id="dtalst" class="dtalst"></ul>
+<label class="lblpgr"></label>
+<div id="pgr2"></div>
+</div>
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script src="../js/common.js"></script>
+<script src="ZPager.js"></script>
+<script>
+function fetchPge(pgNo, pgSze, calAmt) {
+	$.ajax({
+		url : 'testdata.html',
+		success : function (dta) {
+			var $dta = $(dta).find('li');
+			var startIdx = (pgNo - 1) * pgSze;
+			var htm = '';
+			for(var i = startIdx; i < startIdx + pgSze; i++) {
+				var $it = $dta.eq(i);
+				if($it.length === 0) break;
+				htm += $it[0].outerHTML;
+			}
+			$('#dtalst').html(htm);
+			calAmt($dta.length);
+		}
+	});
+}
+
+$.ajax({
+	url : 'testdata.html',
+	success : function (dta) {
+	Pager({
+		numChnging : fetchPge,
+		recordAmount : $(dta).find('li').length,
+		perSetts : {
+			'#pgr1' : {numApear:3, gtoOn:1, labl: '.lblpgr'},
+			'#pgr2' : { }
+		}});
+	}
+});
+</script>
+</body>
+</html>
