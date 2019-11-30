@@ -219,8 +219,8 @@ function Pager(sett) {
 	
 	iniCtrl();
 	gtoNo(currNo);
-	if(glSett.autoDta === 0) {
+	if(glSett.autoDta === 1) {
 		glSett.numChnging(currNo, glSett.pgeSze, calNumAmount);
-		glSett.autoDta = -1;
 	}
+	glSett.autoDta = -1;
 }
