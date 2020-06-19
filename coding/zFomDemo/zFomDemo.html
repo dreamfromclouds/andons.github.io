@@ -62,7 +62,7 @@
 			<input class="zNameDom" zname="fomZVali" zrequire="手机号码" zmobile placeholder="请输入手机号码" />
 		</div>
 		<div class="fom_ln0">
-			<label class="lbl0">Ajax输入：</label>
+			<label class="lbl0">Ajax输入是：</label>
 			<input class="zNameDom" zname="fomZVali" placeholder="请输入Ajax验证" zdesync="zajazTst" />
 		</div>
 	</div>
@@ -73,7 +73,7 @@
 		<input class="btn0 btn0_sty0 w90p" type="submit" value="提交注册" />
 	</div>
 </form>
-<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script src="../js/jq.js"></script>
 <script src="../js/common.js"></script>
 <script src="../ZNumBox/zNumBox.js"></script>
 <script src="../ZValidator/zValidator.js"></script>
@@ -82,7 +82,8 @@
 zajazTst = {
 	url:'zajazTst.html',
 	zsuccess : function ($elm, dta) {
-		return { isOk:false, msgtxt:'未通过验证'};
+		isOk = $elm.val() == dta;
+		return { isOk:isOk, msgtxt:'未通过验证'};
 	}
 }
 
