@@ -124,7 +124,7 @@ CSS Specification Demo:
 				valiOk($elm, _zValiPriority.zAjaz, dta.isOk);
 			});
 			$.ajax(ajzDta);
-		};
+		};	
 		var _zValiMsg = {};
 		_zValiMsg[_zValiPriority.zReq] = function($elm) {
 			var msg = _zValiDifotMsgtxt[_zValiPriority.zReq].replace(/\{\:0\}/g, $elm.attr(_zValiPriority.zReq) || '');
@@ -177,6 +177,7 @@ CSS Specification Demo:
 		
 		function MainExec() {
 			$fom.addClass('ZValidator');
+			$fom.on('focus', '[zname=' + setts.zname + ']', function () {$(this).attr('zvaliok',0);});
 			$fom.on('blur', '[zname=' + setts.zname + ']', valiStack);
 			if(setts.zSubmitButton) {
 				var $subBtn = $(setts.zSubmitButton);

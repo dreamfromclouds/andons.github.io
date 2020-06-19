@@ -61,6 +61,10 @@
 			<label class="lbl0">手机号码：</label>
 			<input class="zNameDom" zname="fomZVali" zrequire="手机号码" zmobile placeholder="请输入手机号码" />
 		</div>
+		<div class="fom_ln0">
+			<label class="lbl0">Ajax输入：</label>
+			<input class="zNameDom" zname="fomZVali" placeholder="请输入Ajax验证" zdesync="zajazTst" />
+		</div>
 	</div>
 	<div id="pers"></div>
 	<p id="btnAdPr" class="ctnr1 btn_cust0 off">+添加注册人</p>
@@ -74,6 +78,14 @@
 <script src="../ZNumBox/zNumBox.js"></script>
 <script src="../ZValidator/zValidator.js"></script>
 <script>
+
+zajazTst = {
+	url:'zajazTst.html',
+	zsuccess : function ($elm, dta) {
+		return { isOk:false, msgtxt:'未通过验证'};
+	}
+}
+
 zcustomF = {
 	zsuccess: function($elm) {
 		var cardType = $elm.parents('.per').find('[idcard]')[0].value;
