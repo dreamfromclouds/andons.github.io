@@ -124,7 +124,7 @@ CSS Specification Demo:
 				valiOk($elm, _zValiPriority.zAjaz, dta.isOk);
 			});
 			$.ajax(ajzDta);
-		};	
+		};
 		var _zValiMsg = {};
 		_zValiMsg[_zValiPriority.zReq] = function($elm) {
 			var msg = _zValiDifotMsgtxt[_zValiPriority.zReq].replace(/\{\:0\}/g, $elm.attr(_zValiPriority.zReq) || '');
