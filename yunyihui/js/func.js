@@ -208,7 +208,7 @@
         });
     }
 
-    var $pgeDom = $('*:not(.idx-prod)');
+    var $pgeDom = $('*:not(.idx-prod, hr)');
     $pgeDom.addClass('wow fadeInUp');
     $pgeDom.attr('data-wow-duration', '.5s');
     new WOW().init();

@@ -86,7 +86,7 @@ body,html {width:100%; height:100%;}
 .cm-btm-nav img {width:100%;}
 .cm-btm-dcr {display:none;}
 
-.abot-nav-owidth, abot-nav-spstkr {display:none;}
+.abot-nav-owidth, .abot-nav-spstkr {display:none;}
 .cm-pg-nm {background:url('../img/pg-nm-bck.jpg'); height:72px; padding-top:1em; vertical-align:middle; text-align:center;}
 .cm-pg-nm-txt {display:inline-block; vertical-align:middle; padding-top:.3em;color:#fff; font-size:2.2em; text-align:right; line-height:76%; }
 .cm-pg-nm-txt span {color:#fff; font-size:.4em; letter-spacing:.5em;}

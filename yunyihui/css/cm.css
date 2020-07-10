@@ -151,7 +151,7 @@ body,html {width:100%; height:100%;}
 .abot-dcr2 {display:block; margin:3em auto 4em auto;}
 
 .abot-nav-spstkr {height:3.6em; }
-.abot-nav {position:fixed; width:100%; background-color:#fff;}
+.abot-nav {position:fixed; width:100%; background-color:#fff; z-index:1;}
 .abot-nav-top {top:0;}
 
 .prod-pg-nm {margin-left:auto; margin-right:auto; text-align:center; margin-bottom:3em;}
