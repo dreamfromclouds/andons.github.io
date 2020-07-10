@@ -1,7 +1,11 @@
 // JavaScript Document
 
 (function ($) {
-
+    var $pgeDom = $('*:not(.idx-prod, hr)');
+    $pgeDom.addClass('wow fadeInUp');
+    $pgeDom.attr('data-wow-duration', '.5s');
+    new WOW().init();
+    
     var $pgTypDom = $('script:last');
     var pgTyp = $pgTypDom.attr('src');
     pgTyp = pgTyp.split('?');
@@ -207,9 +211,4 @@
             });
         });
     }
-
-    var $pgeDom = $('*:not(.idx-prod, hr)');
-    $pgeDom.addClass('wow fadeInUp');
-    $pgeDom.attr('data-wow-duration', '.5s');
-    new WOW().init();
 })(jQuery);
