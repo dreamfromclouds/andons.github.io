@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <script src="js/jq.js"></script>
+    <script>
+        if($(window).width() <= 750) {
+            document.write('<link href="css/cm-mbl.css" rel="stylesheet" type="text/css" />');
+        } else {
+            document.write('<link href="css/cm.css" rel="stylesheet" type="text/css" />');
+        }
+    </script>        
+</head>
+<body>
+    <div id="mblCverRpr" class="mbl-cvr-rpr"><img id="mblCver" class="mbl-cvr" /></div>
+    <div class='nav clr'>
+        <div class='nav-mnu'>            
+            <img id="cmMnuShow" src="img/btn-mnu.png" />
+            <div id="cmMnu" class="cm-mnu">
+                <i id="cmMnuClz" class="cm-mnu-clz"></i>
+                <a href="" class="cm-mnu-it">首 页</a>
+                <a href="" class="cm-mnu-it">服务类型</a>
+                <a href="" class="cm-mnu-it">案例赏析</a>
+                <a href="" class="cm-mnu-it">新闻资讯</a>
+                <a href="" class="cm-mnu-it">关于我们</a>
+                <a href="" class="cm-mnu-it">联系我们</a>
+            </div>
+        </div>
+        <p class="nav-mbl">M：0371-55699916</p>
+        <a href="" class="cm-lgo"><img src="img/lgo.png" /></a>
+    </div>
+    <a href="" class="idx-bnr-rpr"><img class="idx-bnr" src="img/idx-bnr0.jpg" /><img class="idx-btn" src="img/idx-btn.png" /></a>
+    <a href="" class="idx-bnr-rpr"><img class="idx-bnr" src="img/idx-bnr1.jpg" /><img class="idx-btn" src="img/idx-btn.png" /></a>
+    <a href="" class="idx-bnr-rpr"><img class="idx-bnr" src="img/idx-bnr2.jpg" /><img class="idx-btn" src="img/idx-btn.png" /></a>
+    <a href="" class="idx-bnr-rpr"><img class="idx-bnr" src="img/idx-bnr3.jpg" /><img class="idx-btn" src="img/idx-btn.png" /></a>
+    <a href="" class="idx-bnr-rpr"><img class="idx-bnr" src="img/idx-bnr4.jpg" /><img class="idx-btn" src="img/idx-btn.png" /></a>
+    <a href="" class="idx-bnr-rpr"><img class="idx-bnr" src="img/idx-bnr5.jpg" /><img class="idx-btn" src="img/idx-btn.png" /></a>
+    <div class="btm clr">
+        <p class="btm-annoce">10余年设计策划经验 &nbsp;专注大品牌客户服务</p>
+        <div class="btm-ctct clr">
+            <p>电话：0371-55699916</p>
+            <p>邮箱：</p>
+            <p>手机：15537179222</p>
+            <p>277835741@qq.com</p>
+        </div>
+        <p class="idx-btm-copy">
+        版权所有<em>&copy;</em>：河南金品实业有限公司<i></i>备案号： <a href="">豫ICP备19031149号-1</a></p>
+    </div>
+    <div class="btm2">
+        <p class="btm2-h1">10余年设计策划经验  专注大品牌客户服务</p>
+        <p class="btm2-tel">
+            <i>T：</i><span>15537179222<br>0371-55699916</span><br>
+            <span>M：277835741@qq.com</span>
+       </p>
+       <p class="btm2-addr">郑州市郑东新区商务内环路8号楼伟业财智广场13C</p>
+       <p class="btm2-addr2">13c, Weiye Caizhi Square, Zhengzhou City</p>
+       <p class="btm2-addr3">13C, Weiye Caizhi Plaza, Building 8, Business Inner Ring Road,<br>Zhengdong New District, Zhengzhou City</p>
+       <p class="btm2-copy"><i>版权所有<em>&copy;</em>：河南金品实业有限公司</i><i>备案号： 豫ICP备19031149号-1</i></p>
+    </div>
+    <script src="js/jq.js"></script>
+    <script src="js/cm.js"></script>
+    <script src="js/pgr.js?idx"></script>
+    <script>
+        var mblCvr = function () {
+            var img = document.getElementById('mblCver');
+            img.src="img/mblCvr.png";
+            var $mblCverRpr = $('#mblCverRpr');
+            if(img.complete) {
+            $mblCverRpr.stop().delay(1500).animate({opacity:0},200, function () {$(this).remove();
+            $(document.body).removeClass('body-noscroll');});
+            }
+            img.onload = function() {
+            $mblCverRpr.stop().delay(1500).animate({opacity:0},200, function () {$(this).remove();
+            $(document.body).removeClass('body-noscroll');});
+            }
+        }
+        if($(window).width() <= 750 ) {
+            $(document.body).addClass('body-noscroll');
+            mblCvr();
+        } else {
+        }
+    </script>
+</body>
+</body>
+</html>
