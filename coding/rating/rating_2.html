@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css" type="text/css" />
+    <link rel="stylesheet" href="../css/regular.min.css" type="text/css" />
+    <link rel="stylesheet" href="../css/all.min.css" type="text/css" />
+</head>
+<style>
+    body:before {
+        content: '';
+        display: block;
+        height: 1px;
+    }
+
+    .far {
+        font-size: 2em;
+        transaction: all .2s ease 0s;
+        -webkit-transaction: all .2s ease 0s;
+    }
+
+    .rating_bar {
+        padding: 1em;
+        margin: 1em;
+        background-color: #fff;
+    }
+
+    .turnon .turnlight {
+        color: #FFC314;
+    }
+
+    .rstbtn {
+        display: inline-block;
+        padding: 0 .2em;
+        color: #fff;
+        background-color: #5485F8;
+        border-radius: 3px;
+    }
+</style>
+
+<body>
+    <p class="rating_bar turnon">
+        <i class="ratdot far fa-grin"></i>
+        <i class="ratdot far fa-grin"></i>
+        <i class="ratdot far fa-grin"></i>
+        <i class="ratdot far fa-grin"></i>
+        <i class="ratdot far fa-grin"></i>
+    </p>
+    <h2 style="padding:1em;"><label id="rzlt">0</label>%<i class="flt_r	rstbtn" onclick="resetBtnStyle()" id="btnReset" style="display:none;">reset</i></h2>
+    <script>
+        (function () {
+            function rating() {
+                var ratdot = document.querySelectorAll('.ratdot');
+                for (var elm of ratdot) {
+                    elm.onmouseover = function () {
+                        if(document.querySelector('#btnReset').style.display =='') {
+                            return false;
+                        }
+                        var leftElem = this;
+                        while (leftElem != null) {
+                            if (leftElem.className.indexOf(' turnlight') < 0)
+                                leftElem.className += ' turnlight';
+                            leftElem = leftElem.previousElementSibling;
+                        }
+
+                        if (this.nextElementSibling != null) {
+                            var rightElem = this.nextElementSibling;
+                            do {
+                                rightElem.className = rightElem.className.replace(/turnlight/ig, '').replace(/\s{2,}/g, ' ').trim();
+                                rightElem = rightElem.nextElementSibling;
+                            } while (rightElem != null);
+                        }
+                        calScore();
+                    }
+                }
+            }
+
+            function calScore() {
+                var count = document.querySelectorAll('.turnlight');
+                var resultContainer = document.querySelector('#rzlt');
+                resultContainer.textContent = (count.length) * 20;
+            }
+
+
+            function reset() {
+                var elems = document.querySelectorAll('.ratdot');
+                for (var elm of elems) {
+                    elm.onclick = function () {                       
+                        document.querySelector('#btnReset').style.display = "";
+                    }
+                }
+            }
+
+            function resetBtnStyle () {
+                document.getElementById('btnReset').style.display = 'none';
+                var elems = document.querySelectorAll('.ratdot');
+                for(elm of elems) {
+                elm.className = elm.className.replace(/(turnlight)/ig, '').replace(/\s{2,}/g, ' ').trim();                
+                document.querySelector('#rzlt').textContent = '0'; 
+                }
+            }            
+            rating();
+            calScore();
+            reset();
+            document.getElementById('btnReset').onclick = resetBtnStyle;
+        })();
+    </script>
+</body>
+
+</html>
